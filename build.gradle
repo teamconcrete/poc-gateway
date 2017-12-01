@@ -12,6 +12,7 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 group = 'br.com.concrete.backend'
 version = '0.0.1-SNAPSHOT'
@@ -28,9 +29,14 @@ ext {
 }
 
 dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+
 	compile('org.springframework.cloud:spring-cloud-starter-hystrix')
 	compile('org.springframework.cloud:spring-cloud-starter-hystrix-dashboard')
 	compile('io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker')
+	compile('org.springframework.cloud:spring-cloud-starter-eureka')
+    compile('org.springframework.cloud:spring-cloud-starter-zuul')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
